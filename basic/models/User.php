@@ -2,6 +2,24 @@
 
 namespace app\models;
 
+use Yii;
+
+/**
+ * This is the model class for table "users".
+ *
+ * @property int $id
+ * @property string $surname Фамилия
+ * @property string $name Имя
+ * @property string|null $patronymic Отчество
+ * @property string $username Логин
+ * @property string $password Пароль
+ * @property string|null $auth_key Ключ авторизации
+ * @property string|null $access_token Токен доступа
+ * @property string|null $created_at Создано
+ * @property string|null $updated_at Обновлено
+ *
+ * @property Projects[] $projects
+ */
 class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
     public $id;

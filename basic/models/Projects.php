@@ -8,11 +8,13 @@ use Yii;
  * This is the model class for table "projects".
  *
  * @property int $id
- * @property int $user_id
- * @property string $name
- * @property float $cost
- * @property string $start_date
- * @property string|null $end_date
+ * @property int $user_id Связь с пользователем
+ * @property string $name Название проекта
+ * @property float $cost Стоимость проекта
+ * @property string $start_date Дата начала
+ * @property string|null $end_date Дата сдачи
+ * @property string|null $created_at Создано
+ * @property string|null $updated_at Обновлено
  *
  * @property Users $user
  */
@@ -35,8 +37,8 @@ class Projects extends \yii\db\ActiveRecord
             [['user_id', 'name', 'cost', 'start_date'], 'required'],
             [['user_id'], 'integer'],
             [['cost'], 'number'],
-            [['start_date', 'end_date'], 'safe'],
-            [['name'], 'string', 'max' => 100],
+            [['start_date', 'end_date', 'created_at', 'updated_at'], 'safe'],
+            [['name'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -53,6 +55,8 @@ class Projects extends \yii\db\ActiveRecord
             'cost' => 'Cost',
             'start_date' => 'Start Date',
             'end_date' => 'End Date',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
 

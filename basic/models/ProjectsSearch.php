@@ -18,7 +18,7 @@ class ProjectsSearch extends Projects
     {
         return [
             [['id', 'user_id'], 'integer'],
-            [['name', 'start_date', 'end_date'], 'safe'],
+            [['name', 'start_date', 'end_date', 'created_at', 'updated_at'], 'safe'],
             [['cost'], 'number'],
         ];
     }
@@ -64,6 +64,8 @@ class ProjectsSearch extends Projects
             'cost' => $this->cost,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);
